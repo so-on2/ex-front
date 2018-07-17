@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab menu</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <style>
+        #tab_wrap {
+        background:#888;
+        padding:70px;
+        }
+
+        #tab_wrap nav {
+        background:#fff;
+        border-bottom:1px #ddd solid;
+        }
+        #tab_wrap nav ul:after { 
+        content:''; 
+        clear:both; 
+        display:block;
+        }
+        #tab_wrap nav ul { 
+        padding:0; 
+        margin:0 0 -1px;
+        }
+        #tab_wrap nav ul li { 
+        float:left; 
+        list-style:none; 
+        padding:0;
+        margin:0;
+        border-right:1px #ddd solid;
+        box-sizing:border-box;
+        }
+        #tab_wrap nav ul li:last-child{
+        border-right:0;
+        }
+        #tab_wrap nav ul li.on {
+        background:#444;
+        }
+        #tab_wrap nav ul li.on a {
+        color:#fff;
+        font-weight:bold;
+        }
+        #tab_wrap nav ul li a {
+        color:#444;
+        text-decoration:none;
+        font-size:12px;
+        padding:5px 10px;
+        display:block;
+        text-align:center;
+        }
+        #tab_wrap .tab_cont {
+        padding:20px;
+        background:#444;
+        font-size:12px;
+        line-height:1.5;
+        text-align:justify;
+        color:#888;
+        display:none;
+        }
+    </style>
+</head>
+<body>
+        
+    <div id="tab_wrap">
+        <nav>
+            <ul>
+            <li class="on"><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+            </ul>
+        </nav>
+        <div class="tab_cont">
+            1_Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus vitae ex quis tempor. Aliquam ut dolor nec enim finibus tincidunt eget nec ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec nec pellentesque justo. Aliquam justo ante, posuere aliquam blandit eu, consectetur vitae orci. Sed venenatis nunc sit amet feugiat cursus. Maecenas non urna tristique, dapibus mi sed, tincidunt diam. Cras dolor ipsum, commodo a aliquet id, interdum in nisi. Fusce hendrerit augue sed nisi viverra fringilla. Maecenas venenatis enim elit, accumsan pharetra risus blandit sit amet.
+        </div>
+        
+        <div class="tab_cont">
+            2_Duis varius sit amet sapien at semper. Proin aliquet ac purus nec posuere. Ut finibus est eget purus dictum laoreet. Sed malesuada lacinia risus tristique lobortis. Vestibulum viverra, elit eget tincidunt ultricies, elit elit ullamcorper lorem, eget tristique odio lorem ac sem. Vestibulum sodales eget ante sit amet malesuada. Etiam tempor fermentum velit, a ornare quam congue et. Quisque arcu justo, ullamcorper sit amet dolor pretium, gravida elementum leo.
+        </div>
+        
+        <div class="tab_cont">
+            3_Vivamus quis dapibus sapien. Nam laoreet lorem sed mi pretium accumsan. Etiam in magna eleifend, tempus est vitae, elementum diam. Sed nisl felis, convallis vel justo non, rutrum ornare purus. Ut magna justo, pulvinar eget felis vel, auctor interdum risus. Donec euismod arcu vel imperdiet pharetra. Suspendisse aliquam ipsum lacus. Curabitur vel dolor vel nulla tincidunt sagittis vitae et nisi. Integer elementum rutrum tellus at varius. Aliquam vel rutrum tellus, sed maximus augue.
+        </div>
+        
+            <div class="tab_cont">
+            3_Vivamus quis dapibus sapien. Nam laoreet lorem sed mi pretium accumsan. Etiam in magna eleifend, tempus est vitae, elementum diam. Sed nisl felis, convallis vel justo non, rutrum ornare purus. Ut magna justo, pulvinar eget felis vel, auctor interdum risus. Donec euismod arcu vel imperdiet pharetra. Suspendisse aliquam ipsum lacus. Curabitur vel dolor vel nulla tincidunt sagittis vitae et nisi. Integer elementum rutrum tellus at varius. Aliquam vel rutrum tellus, sed maximus augue.
+        </div>
+    </div>
+    <script>
+        
+        /* size set */
+        var _menu_len = $('#tab_wrap nav li').length;
+        $('#tab_wrap nav li').css("width", (100/_menu_len) + "%");
+
+        /* init */
+        var _select = $('#tab_wrap nav li.on').index();
+        $('#tab_wrap .tab_cont').eq(_select).show();
+
+        /* bind */
+        $('#tab_wrap nav li a').click(function(e){
+            e.preventDefault();
+        var _index = $(this).closest('li').index();
+        $('#tab_wrap nav li').removeClass('on').eq(_index).addClass('on');
+        $('#tab_wrap .tab_cont').hide().eq(_index).show();
+        });
+    </script>
+</body>
+
+</html>

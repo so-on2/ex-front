@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tooltip</title>
+    <style>
+        body {
+        background-color:lightgray;
+        }
+        #tooltip_wrap {
+        margin:100px;
+        }
+
+        #tooltip_wrap > ul {
+        padding: 0;
+        }
+
+        #tooltip_wrap > ul:after {
+        content: '';
+        display: block;
+        clear: both;
+        }
+
+        #tooltip_wrap > ul > li {
+        float: left;
+        list-style: none;
+        position: relative;
+        padding: 5px 20px;
+        background: #f9f9f9;
+            cursor:pointer;
+        }
+
+        #tooltip_wrap ul > li > a {
+        font-size: 12px;
+        color: #aaa;
+        text-decoration: none;
+        }
+
+        #tooltip_wrap dl {
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        background: skyblue;
+        bottom: -80px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        padding: 10px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        }
+
+        #tooltip_wrap dl:before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-width: 5px;
+        border-style: solid;
+        display: block;
+        border-color: transparent transparent skyblue transparent;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        }
+
+        #tooltip_wrap dl dt {
+        text-align: center;
+        border-bottom: 1px #fff solid;
+        font-size: 12px;
+        color: #fff;
+        padding-bottom: 5px;
+        }
+
+        #tooltip_wrap dl dd {
+        padding: 5px 0 0;
+        margin: 0;
+        font-size: 12px;
+        color: #f9f9f9;
+        }
+
+        #tooltip_wrap ul > li:hover dl,
+        #tooltip_wrap ul > li:focus dl{
+        opacity: 1;
+        z-index: 1;
+        transition: opacity 0.3s ease;
+        -ms-transition: opacity 0.3s ease;
+        -webkit-transition: opacity 0.3s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="tooltip_wrap">
+        <ul>
+            <li tabindex="0">
+            <a href="#" tabindex="-1">title1</a>
+            <dl>
+                <dt>title</dt>
+                <dd>desc</dd>
+            </dl>
+            </li>
+            <li tabindex="0">
+            <a href="#" tabindex="-1">title2</a>
+            <dl>
+                <dt>title2</dt>
+                <dd>desc2</dd>
+            </dl>
+            </li>
+            <li tabindex="0">
+            <a href="#" tabindex="-1">title3</a>
+            <dl>
+                <dt>title3</dt>
+                <dd>desc3</dd>
+            </dl>
+            </li>
+        </ul>
+        <p>tooltip example...</p>
+    </div>
+              
+</body>
+</html>
