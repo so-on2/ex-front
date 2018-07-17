@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toggle button</title>
+    <style>
+        body {
+          background: #666;
+          padding:100px;
+        }
+
+        .on_off_btn {
+          position: relative;
+          display: block;
+          height: 25px;
+          z-index: 0;
+        }
+
+        .on_off_btn input {
+          display: none;
+        }
+
+        .on_off_btn .txt {
+          cursor: pointer;
+          color: #999;
+          font-size: 14px;
+          padding-left: 60px;
+          line-height: 25px;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          width: 53px;
+          bottom: 0;
+          background-color: #f9f9f9;
+          transition: .4s;
+          border-radius: 2em;
+          z-index: 0;
+        }
+
+        .slider:before {
+          content: '';
+          position: absolute;
+          height: 21px;
+          width: 21px;
+          left: 30px;
+          bottom: 2px;
+          background-color: skyblue;
+          transition: .4s;
+          border-radius: 2em;
+          z-index: 0;
+          display: block;
+          z-index: 0;
+        }
+
+        .slider:after {
+          content: 'off';
+          position: absolute;
+          z-index: 2;
+          height: 25px;
+          line-height: 25px;
+          left: 1px;
+          text-align: center;
+          width: 30px;
+          font-size: 12px;
+          color: #aaa;
+        }
+
+        input#on_off_flag:checked + .slider {
+          background-color: skyblue;
+        }
+
+        input#on_off_flag:focus + .slider {
+          box-shadow: 0 0 1px skyblue;
+        }
+
+        input#on_off_flag:checked + .slider:after {
+          content: 'on';
+          right: 1px;
+          left: auto;
+          color: #fff;
+        }
+
+        input#on_off_flag:checked + .slider:before {
+          transform: translateX(-28px);
+          -ms-transform: translateX(-28px);
+          -webkit-transform: translateX(-28px);
+          background: white;
+        }
+
+        input#on_off_flag:checked ~ .txt {
+          color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <label class="on_off_btn">
+      <input type="checkbox" id="on_off_flag" name="on_off_flag">
+      <span class="slider"></span>
+      <span class="txt">Button Toggle</span>
+    </label>
+</body>
+</html>
